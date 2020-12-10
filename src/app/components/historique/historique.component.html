@@ -15,7 +15,7 @@
   <tr *ngFor="let pizza of pizzaList">
     <td>{{pizza.date | dateago }}</td>
     <td>{{pizza.nom}}</td>
-    <td>{{getPizzaDescription(pizza)}}</td>
+    <td>{{pizzaService.getPizzaDescription(pizza)}}</td>
     <td>{{pizza.prix | currency:'EUR'}}</td>
   </tr>
   </tbody>

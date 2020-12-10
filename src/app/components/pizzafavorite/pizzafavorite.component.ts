@@ -14,7 +14,7 @@ export class PizzafavoriteComponent implements OnInit {
   public loader: boolean;
   public show: boolean;
 
-  constructor(private pizzaservice: PizzaService, private router: Router, private toastr: ToastrService, private logger: LoggerService) {
+  constructor(public pizzaservice: PizzaService, private router: Router, private toastr: ToastrService, private logger: LoggerService) {
     this.show = false;
   }
 

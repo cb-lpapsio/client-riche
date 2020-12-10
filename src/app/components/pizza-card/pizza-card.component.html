@@ -3,7 +3,7 @@
   <div class="card-body">
     <h5 class="card-title">{{pizza.nom}}</h5>
     <p class="card-text">
-      {{getPizzaDescription()}}
+      {{pizzaservice.getPizzaDescription(pizza)}}
       <br>
       <b>{{pizza.prix | currency:'EUR'}}</b>
     </p>

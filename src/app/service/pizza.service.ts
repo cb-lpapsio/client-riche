@@ -37,4 +37,21 @@ export class PizzaService {
   getHistorique(): Observable<PizzaApi[]> {
     return  this.http.get<PizzaApi[]>(this.url + '/historique');
   }
+
+  getPizzaDescription(pizza: PizzaApi): string {
+    let description = `Pâte ${pizza.pate}, Base ${pizza.base}`;
+    if (pizza.magret){
+      description += ', magret';
+    }
+    if (pizza.anchois){
+      description += ', anchois';
+    }
+    if (pizza.jambon){
+      description += ', jambon';
+    }
+    if (pizza.miel){
+      description += ', miel';
+    }
+    return description;
+  }
 }

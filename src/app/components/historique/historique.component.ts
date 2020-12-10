@@ -9,28 +9,9 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class HistoriqueComponent implements OnInit {
 
-  constructor(private pizzaService: PizzaService, private logger: LoggerService, private toastr: ToastrService) { }
+  constructor(public pizzaService: PizzaService, private logger: LoggerService, private toastr: ToastrService) { }
   public pizzaList: PizzaApi[];
   public loader: boolean;
-
-  getPizzaDescription(pizza: PizzaApi): string {
-    let description = `Pâte ${pizza.pate}, Base ${pizza.base}`;
-    if (pizza.magret){
-      description += ', magret';
-    }
-    if (pizza.anchois){
-      description += ', anchois';
-    }
-    if (pizza.jambon){
-      description += ', jambon';
-    }
-    if (pizza.miel){
-      description += ', miel';
-    }
-    return description;
-  }
-
-
 
   ngOnInit(): void {
     this.loader = true;

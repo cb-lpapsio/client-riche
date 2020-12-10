@@ -16,27 +16,10 @@ export class PizzaCardComponent implements OnInit {
   public btnLoader = false;
   @Input() public disabled = false;
 
-  constructor(private pizzaservice: PizzaService, private toastr: ToastrService, private router: Router, private logger: LoggerService) { }
+  constructor(public pizzaservice: PizzaService, private toastr: ToastrService, private router: Router, private logger: LoggerService) { }
 
   ngOnInit(): void {
     this.logger.info('ngOnInit PizzaCardComponent').subscribe();
-  }
-
-  getPizzaDescription(): string {
-    let description = `Pâte ${this.pizza.pate}, Base ${this.pizza.base}`;
-    if (this.pizza.magret){
-      description += ', magret';
-    }
-    if (this.pizza.anchois){
-      description += ', anchois';
-    }
-    if (this.pizza.jambon){
-      description += ', jambon';
-    }
-    if (this.pizza.miel){
-      description += ', miel';
-    }
-    return description;
   }
 
   commanderPizza(): void {

@@ -2,8 +2,12 @@
 <div class="lastpizza" *ngIf="show">
   <div class="card" >
     <div class="card-body">
-      <h5 class="card-title">Votre dernière commande</h5>
-      <p class="card-text">Pizza <b>{{lastPizza.pate}}</b> -  <b>{{lastPizza.base}}</b></p>
+      <h5 class="card-title">Votre dernière commande : </h5>
+      <p class="card-text">
+        Pizza <b>{{lastPizza.pate}}</b> -  <b>{{lastPizza.base}}</b>
+        <br>
+        {{pizzaservice.getPizzaDescription(lastPizza)}}
+      </p>
       <app-loader *ngIf="loader" ></app-loader>
       <div  *ngIf="!loader">
         <button class="btn btn-primary mr-3" (click)="commanderLastPizza()">Commander cette pizza</button>
