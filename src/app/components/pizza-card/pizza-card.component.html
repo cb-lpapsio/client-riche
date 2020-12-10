@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{pizza.image}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{pizza.nom}}</h5>
+    <p class="card-text">
+      {{getPizzaDescription()}}
+      <br>
+      <b>{{pizza.prix | currency:'EUR'}}</b>
+    </p>
+
+    <app-loader *ngIf="btnLoader"></app-loader>
+    <button *ngIf="!btnLoader" [disabled]="disabled"  (click)="commanderPizza()" class="btn btn-primary">Commander</button>
+  </div>
+</div>

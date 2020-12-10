@@ -1,0 +1,30 @@
+<form #f="ngForm">
+  <h2>Base</h2>
+  <div *ngFor="let base of bases">
+    <input  type="radio" name="base" (change)="baseChange(base, $event)" value="{{base.nom}}"/>
+    {{base.nom }} {{base.prix | currency:'EUR'}}
+  </div>
+  <h2>Ingredients</h2>
+</form>
+<hr>
+<form #fe="ngForm">
+  <div *ngFor="let ingredient of ingredients" >
+    <input type="checkbox" name="{{ingredient.nom}}" (change)="ingredientChange(ingredient, $event)" >
+    {{ingredient.nom}} {{ingredient.prix | currency:'EUR'}}
+  </div>
+
+</form>
+<hr>
+
+<div *ngIf="!this.pizza.isValid()" class="alert alert-danger">Veuillez choisir une pâte et au moin un ingrédient pour commander.</div>
+
+<div><b>Prix Total : {{this.pizza.getPrice() | currency:'EUR'}}</b> </div>
+
+
+<app-loader *ngIf="loaderCommande" ></app-loader>
+
+
+<button *ngIf="!loaderCommande" (click)="commander()" [disabled]="!this.pizza.isValid()" >Commander</button>
+
+
+

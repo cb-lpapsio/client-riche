@@ -1,0 +1,22 @@
+
+<app-loader *ngIf="loader"></app-loader>
+
+<table *ngIf="!loader" class="table">
+  <thead>
+  <tr>
+    <th scope="col">Date</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Ingrédients</th>
+    <th scope="col">Prix</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let pizza of pizzaList">
+    <td>{{pizza.date | dateago }}</td>
+    <td>{{pizza.nom}}</td>
+    <td>{{getPizzaDescription(pizza)}}</td>
+    <td>{{pizza.prix | currency:'EUR'}}</td>
+  </tr>
+  </tbody>
+</table>

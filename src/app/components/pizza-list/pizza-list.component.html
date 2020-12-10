@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-2">
+    Prix max :
+  </div>
+  <div class="col-6">
+    <input  #selector type="range" class="w-100"
+            min="5" max="15" (change)="priceRangeChange(selector.value)">
+  </div>
+  <div class="col-2">
+    {{pizzaMaxPrice | currency:'EUR'}}
+  </div>
+</div>
+<br>
+
+<app-loader *ngIf="loader"></app-loader>
+
+
+<div *ngIf="!loader" class="row">
+  <div   *ngFor="let pizza of pizzasFiltered" class="col-auto mb-3">
+    <app-pizza-card [disabled]="btnsDisabled"  [pizza]="pizza"  (orderEnd)="orderEnd()" (orderStart)="orderStart()"></app-pizza-card>
+  </div>
+</div>
+
